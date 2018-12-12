@@ -6,7 +6,7 @@ from web3 import Web3, EthereumTesterProvider
 import vyper
 
 
-with open('canal-lock.vy', 'r') as f:
+with open('CanalLock.vy', 'r') as f:
     interface = vyper.compile_code(f.read(), \
             output_formats=['abi', 'bytecode', 'bytecode_runtime'])
 
