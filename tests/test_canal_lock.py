@@ -6,8 +6,7 @@ from web3 import Web3, EthereumTesterProvider
 import vyper
 
 
-with open('CanalLock.vy', 'r') as f:
-   code = """
+code = """
 gate1: public(bool) # False = Up (stopping water), True = Down (letting water through)
 gate2: public(bool) # False = Up (stopping water), True = Down (letting water through)
 
@@ -29,8 +28,8 @@ def lower_gate(pick_gate1: bool):
         assert not self.gate1
         self.gate2 = True # Lower down, allowing the flow of water
 """
-    interface = vyper.compile_code(f.read(), \
-            output_formats=['abi', 'bytecode', 'bytecode_runtime'])
+interface = vyper.compile_code(code, \
+        output_formats=['abi', 'bytecode', 'bytecode_runtime'])
 
 
 class CanalLockProblem(RuleBasedStateMachine):
