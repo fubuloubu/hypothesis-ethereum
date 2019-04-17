@@ -1,4 +1,0 @@
-hypothesis
-pytest
-web3[tester]
-vyper
