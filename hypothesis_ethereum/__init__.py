@@ -12,14 +12,15 @@ class InstrumentedContract(RuleBasedStateMachine):
     for the relevant data types from the contract's ABI
     """
 
-    def __init__(self, *args, **kwargs):
-        assert self.interface is not None
+    def __new__(cls, *args, **kwargs):
+        instance = super().__new__(cls, *args, **kwargs)
+        assert instance.interface is not None
         w3 = Web3(EthereumTesterProvider())
-        txn_hash = w3.eth.contract(**self.interface).constructor().transact()
+        txn_hash = w3.eth.contract(**instance.interface).constructor().transact()
         address = w3.eth.waitForTransactionReceipt(txn_hash)['contractAddress']
-        contract = w3.eth.contract(address, **self.interface)
-        self._contract = contract
-        super().__init__(*args, **kwargs)
+        contract = w3.eth.contract(address, **instance.interface)
+        instance._contract = contract
+        return instance
 
     @property
     def gate1_down(self):
