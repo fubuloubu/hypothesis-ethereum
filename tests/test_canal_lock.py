@@ -30,8 +30,7 @@ def lower_gate(pick_gate1: bool):
 
 
 class CanalLockProblem(InstrumentedContract):
-    def __init__(self):
-        super().__init__(interface)
+    interface = interface
 
     @invariant()
     def gates_both_down(self):

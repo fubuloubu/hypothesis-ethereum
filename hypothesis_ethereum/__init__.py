@@ -5,17 +5,19 @@ from web3 import Web3, EthereumTesterProvider
 
 
 class InstrumentedContract(RuleBasedStateMachine):
+    interface = None
     """
     This class injects @rule decorators for calling
     state-modifying functions with hypothesis strategies
     for the relevant data types from the contract's ABI
     """
 
-    def __init__(self, contract_interface, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
+        assert self.interface is not None
         w3 = Web3(EthereumTesterProvider())
-        txn_hash = w3.eth.contract(**contract_interface).constructor().transact()
+        txn_hash = w3.eth.contract(**self.interface).constructor().transact()
         address = w3.eth.waitForTransactionReceipt(txn_hash)['contractAddress']
-        contract = w3.eth.contract(address, **contract_interface)
+        contract = w3.eth.contract(address, **self.interface)
         self._contract = contract
         super().__init__(*args, **kwargs)
 
