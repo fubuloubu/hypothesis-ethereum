@@ -30,8 +30,15 @@ def lower_gate(pick_gate1: bool):
 
 
 class CanalLockProblem(InstrumentedContract):
-    interface = interface
+    interface = interface  # Required to set this class variable
+    # Class variables are derived from the ABI (provided by the interface)
 
+    # @invariant is a decorator that builds around a
+    # user-defined class method, which takes derived class
+    # variables (from the contract's view-only ABI) and
+    # makes asserts against them. These invariants are checked
+    # during the fuzzer-based stateful testing functionality
+    # provided by the Hypothesis.Stateful API.
     @invariant()
     def gates_both_down(self):
         assert not (self.gate1_down and self.gate2_down)
