@@ -35,8 +35,6 @@ class CanalLockProblem(InstrumentedContract):
 
     @invariant()
     def gates_both_down(self):
-        gate1_down = self._contract.functions.gate1_down().call()
-        gate2_down = self._contract.functions.gate2_down().call()
-        assert not (gate1_down and gate2_down)
+        assert not (self.gate1_down and self.gate2_down)
 
 CanalLockTest = CanalLockProblem.TestCase

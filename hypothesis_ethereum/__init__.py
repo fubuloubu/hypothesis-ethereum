@@ -18,7 +18,15 @@ class InstrumentedContract(RuleBasedStateMachine):
         contract = w3.eth.contract(address, **contract_interface)
         self._contract = contract
         super().__init__(*args, **kwargs)
-    
+
+    @property
+    def gate1_down(self):
+        return self._contract.functions.gate1_down().call()
+
+    @property
+    def gate2_down(self):
+        return self._contract.functions.gate2_down().call()
+
     @rule(choose_gate1=st.booleans())
     def raise_gate(self, choose_gate1):
         try: # May fail, but that's okay because failure means it was caught!
