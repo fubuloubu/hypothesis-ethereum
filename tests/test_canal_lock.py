@@ -2,7 +2,13 @@ import vyper
 
 with open('tests/CanalLock.vy', 'r') as f:
     code = f.read()
-    interface = vyper.compile_code(code,
+    good_interface = vyper.compile_code(code,
+            output_formats=['abi', 'bytecode', 'bytecode_runtime'])
+    code = code.replace(
+            'assert not self.gate2_down  # CHANGE ME',
+            'assert self.gate2_down  # CHANGED!',
+        )
+    bad_interface = vyper.compile_code(code,
             output_formats=['abi', 'bytecode', 'bytecode_runtime'])
 
 
@@ -17,4 +23,5 @@ def check_gates_both_down(contract):
         )
 
 
-CanalLockTest = build_test(interface, [check_gates_both_down])
+PassCanalLockTest = build_test(good_interface, [check_gates_both_down])
+FailCanalLockTest = build_test(bad_interface, [check_gates_both_down])
