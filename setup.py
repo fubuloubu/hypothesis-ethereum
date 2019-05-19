@@ -49,11 +49,9 @@ setup(
     url='https://github.com/fubuloubu/hypothesis-ethereum',
     include_package_data=True,
     install_requires=[
-        "hypothesis",
-        'web3[tester]>=5.0.0a9',
-    ],
-    dependancy_links=[
-        "https://github.com/davesque/eth-abi@tools-submodule#egg=eth_abi[tools]"
+        'hypothesis>=4.23.5',
+        'eth_abi[tools] @ https://github.com/davesque/eth-abi/archive/tools-submodule.zip',
+        'web3[tester]>=5.0.0b2',
     ],
     setup_requires=['setuptools-markdown'],
     python_requires='>=3.6, <4',
