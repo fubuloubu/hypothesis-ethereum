@@ -52,6 +52,9 @@ setup(
         "hypothesis",
         'web3[tester]>=5.0.0a9',
     ],
+    dependancy_links=[
+        "https://github.com/davesque/eth-abi@tools-submodule#egg=eth_abi[tools]"
+    ],
     setup_requires=['setuptools-markdown'],
     python_requires='>=3.6, <4',
     extras_require=extras_require,
