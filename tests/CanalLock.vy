@@ -12,7 +12,7 @@ def raise_gate(pick_gate1: bool):
 def lower_gate(pick_gate1: bool):
     if pick_gate1: # Gate 2 cannot
         # Both gates can not be lowered at the same time
-        assert not self.gate2_down
+        assert not self.gate2_down  # CHANGE ME
         self.gate1_down = True # Lower down, allowing the flow of water
     else:
         # Both gates can not be lowered at the same time
