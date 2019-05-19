@@ -2,7 +2,7 @@ import pytest
 
 import vyper
 
-from hypothesis_ethereum import InstrumentedContract, invariant
+from hypothesis_ethereum import build_test
 
 
 interface = vyper.compile_code("""
@@ -29,18 +29,11 @@ def lower_gate(pick_gate1: bool):
 """, output_formats=['abi', 'bytecode', 'bytecode_runtime'])
 
 
-class CanalLockProblem(InstrumentedContract):
-    interface = interface  # Required to set this class variable
-    # Class variables are derived from the ABI (provided by the interface)
+def check_gates_both_down(contract):
+    assert not (
+            contract.functions.gate1_down().call() and \
+            contract.functions.gate2_down().call()
+        )
 
-    # @invariant is a decorator that builds around a
-    # user-defined class method, which takes derived class
-    # variables (from the contract's view-only ABI) and
-    # makes asserts against them. These invariants are checked
-    # during the fuzzer-based stateful testing functionality
-    # provided by the Hypothesis.Stateful API.
-    @invariant()
-    def gates_both_down(self):
-        assert not (self.gate1_down and self.gate2_down)
 
-CanalLockTest = CanalLockProblem.TestCase
+CanalLockTest = build_test(interface, [check_gates_both_down])
