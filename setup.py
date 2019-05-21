@@ -50,7 +50,7 @@ setup(
     include_package_data=True,
     install_requires=[
         'hypothesis>=4.23.5',
-        'eth_abi[tools] @ https://github.com/davesque/eth-abi/archive/tools-submodule.zip',
+        'eth_abi[tools]>=2.0.0b9',
         'web3[tester]>=5.0.0b2',
     ],
     setup_requires=['setuptools-markdown'],
