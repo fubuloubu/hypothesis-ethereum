@@ -7,14 +7,19 @@ from eth_tester.exceptions import TransactionFailed
 from web3 import Web3, EthereumTesterProvider
 
 
-def _deploy_contract(w3, interface):
-    txn_hash = w3.eth.contract(**interface).constructor().transact()
+def _deploy_contract(w3, interface, args_st=None):
+    if args_st:
+        txn_hash = st.builds(
+                w3.eth.contract(**interface).constructor, *args_st
+            ).example().transact()
+    else:
+        txn_hash = w3.eth.contract(**interface).constructor().transact()
     address = w3.eth.waitForTransactionReceipt(txn_hash)['contractAddress']
     return w3.eth.contract(address, **interface)
 
 
-def _validate_invariant(w3, interface, invariant):
-    contract = _deploy_contract(w3, interface)
+def _validate_invariant(w3, interface, invariant, args_st=None):
+    contract = _deploy_contract(w3, interface, args_st=args_st)
     # TODO Detect if invariant modifies state, bad!
     snapshot = w3.testing.snapshot()
     try:
@@ -37,6 +42,16 @@ def _validate_interface(interface):
         raise ValueError("Interface does not have Runtime!")
 
 
+def _build_deployment_strategy(contract_abi):
+    # Obtain the constructor from the ABI, if one exists
+    fn_abi = [fn for fn in contract_abi if fn['type'] == 'constructor']
+    assert len(fn_abi) < 2, "This should never happen, but check anyways"
+    if len(fn_abi) == 0:
+        return None  # Return no strategy (empty set)
+    # Return the constructor's ABI deployment strategy list
+    return [get_abi_strategy(arg['type']) for arg in fn_abi[0]['inputs']]
+
+
 def build_call_strategies(contract):
     state_modifying_functions = \
             [f for f in contract.all_functions() if not f.abi['constant']]
@@ -48,6 +63,9 @@ def build_call_strategies(contract):
 def build_test(interface):
     # Ensure we have a valid interface dict
     _validate_interface(interface)
+
+    # Cache strategy for constructor deployment
+    deployment_st = _build_deployment_strategy(interface['abi'])
 
     def test_builder(invariant):
         """
@@ -61,7 +79,7 @@ def build_test(interface):
             def __init__(self):
                 # Deploy contract
                 # TODO Handle deploying contracts w/ constructor args
-                self._contract = _deploy_contract(w3, interface)
+                self._contract = _deploy_contract(w3, interface, args_st=deployment_st)
 
                 # Initialize GenericStateMachine
                 super(InstrumentedContract, self).__init__()
