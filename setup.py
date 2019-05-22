@@ -41,7 +41,7 @@ extras_require['dev'] = (
 setup(
     name='hypothesis-ethereum',
     # *IMPORTANT*: Don't manually change the version here. Use `make bump`, as described in readme
-    version='0.0.1-alpha.1',
+    version='0.0.1-alpha.2',
     description="""hypothesis-ethereum: Hypothesis library for ethereum projects.""",
     long_description_markdown_filename='README.md',
     author='hypothesis-ethereum-contributors',
