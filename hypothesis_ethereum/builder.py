@@ -7,15 +7,16 @@ from eth_tester.exceptions import TransactionFailed
 from web3 import Web3, EthereumTesterProvider
 
 
-def _deploy_contract(w3, interface, args_st=None):
-    if args_st:
-        txn_hash = st.builds(
-                w3.eth.contract(**interface).constructor, *args_st
-            ).example().transact()
-    else:
-        txn_hash = w3.eth.contract(**interface).constructor().transact()
-    address = w3.eth.waitForTransactionReceipt(txn_hash)['contractAddress']
-    return w3.eth.contract(address, **interface)
+def _validate_interface(interface):
+    interface_members = interface.keys()
+    if len(interface_members) != 3:
+        raise ValueError("Interface must have 3 members!")
+    if 'abi' not in interface_members:
+        raise ValueError("Interface does not have ABI!")
+    if 'bytecode' not in interface_members:
+        raise ValueError("Interface does not have Binary!")
+    if 'bytecode_runtime' not in interface_members:
+        raise ValueError("Interface does not have Runtime!")
 
 
 def _validate_invariant(w3, interface, invariant, args_st=None):
@@ -30,16 +31,15 @@ def _validate_invariant(w3, interface, invariant, args_st=None):
         w3.testing.revert(snapshot)
 
 
-def _validate_interface(interface):
-    interface_members = interface.keys()
-    if len(interface_members) != 3:
-        raise ValueError("Interface must have 3 members!")
-    if 'abi' not in interface_members:
-        raise ValueError("Interface does not have ABI!")
-    if 'bytecode' not in interface_members:
-        raise ValueError("Interface does not have Binary!")
-    if 'bytecode_runtime' not in interface_members:
-        raise ValueError("Interface does not have Runtime!")
+def _deploy_contract(w3, interface, args_st=None):
+    if args_st:
+        txn_hash = st.builds(
+                w3.eth.contract(**interface).constructor, *args_st
+            ).example().transact()
+    else:
+        txn_hash = w3.eth.contract(**interface).constructor().transact()
+    address = w3.eth.waitForTransactionReceipt(txn_hash)['contractAddress']
+    return w3.eth.contract(address, **interface)
 
 
 def _build_deployment_strategy(contract_abi):
