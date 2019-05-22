@@ -14,6 +14,18 @@ def deploy_contract(interface):
     return w3.eth.contract(address, **interface)
 
 
+def _validate_interface(interface):
+    interface_members = interface.keys()
+    if len(interface_members) != 3:
+        raise ValueError("Interface must have 3 members!")
+    if 'abi' not in interface_members:
+        raise ValueError("Interface does not have ABI!")
+    if 'bytecode' not in interface_members:
+        raise ValueError("Interface does not have Binary!")
+    if 'bytecode_runtime' not in interface_members:
+        raise ValueError("Interface does not have Runtime!")
+
+
 def build_call_strategies(contract):
     state_modifying_functions = \
             [f for f in contract.all_functions() if not f.abi['constant']]
@@ -23,6 +35,9 @@ def build_call_strategies(contract):
 
 
 def build_test(interface):
+    # Ensure we have a valid interface dict
+    _validate_interface(interface)
+
     def test_builder(invariant):
         """
         """
