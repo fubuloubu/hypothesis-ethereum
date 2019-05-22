@@ -108,7 +108,6 @@ def build_test(interface):
                 w3.testing.revert(snapshot)
 
                 # Deploy contract
-                # TODO Handle deploying contracts w/ constructor args
                 self._contract = _deploy_contract(w3, interface, args_st=deployment_st)
 
                 # Initialize GenericStateMachine
@@ -116,7 +115,6 @@ def build_test(interface):
 
             def steps(self):
                 # Generate call strategies
-                # TODO Maybe cache this?
                 return _build_txn_strategies(self._contract, fn_sts)
 
             def execute_step(self, step):
