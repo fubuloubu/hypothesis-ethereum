@@ -16,12 +16,17 @@ with open('tests/CanalLock.vy', 'r') as f:
 from hypothesis_ethereum import build_test
 
 
-def check_gates_both_down(contract):
+@build_test(good_interface)
+def test_good(contract):
     assert not (
             contract.functions.gate1_down().call() and \
             contract.functions.gate2_down().call()
         )
 
 
-PassCanalLockTest = build_test(good_interface, [check_gates_both_down])
-FailCanalLockTest = build_test(bad_interface, [check_gates_both_down])
+@build_test(bad_interface)
+def test_bad(contract):
+    assert not (
+            contract.functions.gate1_down().call() and \
+            contract.functions.gate2_down().call()
+        )

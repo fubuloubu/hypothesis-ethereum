@@ -22,38 +22,40 @@ def build_call_strategies(contract):
         yield st.builds(fn, *args_strategy)
 
 
-def build_test(interface, invariants):
-    """
-    """
-    # TODO Validate interface
-    # TODO Validate invariant functions
+def build_test(interface):
+    def build_test(invariant):
+        """
+        """
+        # TODO Validate interface
+        # TODO Validate invariant functions
 
-    class InstrumentedContract(GenericStateMachine):
+        class InstrumentedContract(GenericStateMachine):
 
-        def __init__(self):
-            # Deploy contract
-            # TODO Handle deploying contracts w/ constructor args
-            self._contract = deploy_contract(interface)
+            def __init__(self):
+                # Deploy contract
+                # TODO Handle deploying contracts w/ constructor args
+                self._contract = deploy_contract(interface)
 
-            # Initialize GenericStateMachine
-            super(InstrumentedContract, self).__init__()
+                # Initialize GenericStateMachine
+                super(InstrumentedContract, self).__init__()
 
-        def steps(self):
-            # Generate call strategies
-            # TODO Maybe cache this?
-            return st.one_of(*build_call_strategies(self._contract))
+            def steps(self):
+                # Generate call strategies
+                # TODO Maybe cache this?
+                return st.one_of(*build_call_strategies(self._contract))
 
-        def execute_step(self, step):
-            try:
-                step.transact()
-            except TransactionFailed:
-                # May fail, but that's okay because failure means it was caught!
-                pass
-            # TODO Handle OutOfGas
-            # TODO Handle InvalidOpcode
-            # TODO Handle other exceptional scenarios
+            def execute_step(self, step):
+                try:
+                    step.transact()
+                except TransactionFailed:
+                    # May fail, but that's okay because failure means it was caught!
+                    pass
+                # TODO Handle OutOfGas
+                # TODO Handle InvalidOpcode
+                # TODO Handle other exceptional scenarios
 
-        def check_invariants(self):
-            [inv(self._contract) for inv in invariants]
+            def check_invariants(self):
+                invariant(self._contract)
 
-    return InstrumentedContract.TestCase
+        return InstrumentedContract.TestCase
+    return build_test
