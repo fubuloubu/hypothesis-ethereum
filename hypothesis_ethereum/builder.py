@@ -23,7 +23,7 @@ def build_call_strategies(contract):
 
 
 def build_test(interface):
-    def build_test(invariant):
+    def test_builder(invariant):
         """
         """
         # TODO Validate interface
@@ -58,4 +58,5 @@ def build_test(interface):
                 invariant(self._contract)
 
         return InstrumentedContract.TestCase
-    return build_test
+
+    return test_builder
