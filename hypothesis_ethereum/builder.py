@@ -53,7 +53,7 @@ def _build_deployment_strategy(contract_abi):
     if len(fn_abi) == 0:
         return None  # Return no strategy (empty set)
     # Return the constructor's ABI deployment strategy list
-    return [get_abi_strategy(arg['type']) for arg in fn_abi[0]['inputs']]
+    return tuple([get_abi_strategy(arg['type']) for arg in fn_abi[0]['inputs']])
 
 
 def _build_fn_strategies(contract_abi):
@@ -66,11 +66,12 @@ def _build_fn_strategies(contract_abi):
 
 
 def _build_txn_strategies(contract, fn_sts):
-    # FIXME Something about caching here with fn_sts doesn't work...
+    # Build a function call strategy for the given arg strategy
     def build_call(fn_name, args_sts):
         fn = getattr(contract.functions, fn_name)
         return st.builds(fn, *args_sts)
 
+    # The transaction strategy is one of the available state-modifying calls
     call_st = st.one_of([build_call(fn, args_sts) for fn, args_sts in fn_sts])
     # TODO Build transaction w/ caller instead of call via:
     #           fn_call.transact({'from': caller})
@@ -85,7 +86,7 @@ def build_test(interface):
     deployment_st = _build_deployment_strategy(interface['abi'])
 
     # Cache function call strategies
-    #fn_sts = _build_fn_strategies(interface['abi'])
+    fn_sts = tuple(_build_fn_strategies(interface['abi']))
 
     def test_builder(invariant):
         """
@@ -113,9 +114,6 @@ def build_test(interface):
                 super(InstrumentedContract, self).__init__()
 
             def steps(self):
-                # FIXME The above caching doesn't work...
-                fn_sts = _build_fn_strategies(interface['abi'])
-
                 # Generate call strategies
                 return _build_txn_strategies(self._contract, fn_sts)
 
