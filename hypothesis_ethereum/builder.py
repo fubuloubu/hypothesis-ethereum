@@ -7,11 +7,22 @@ from eth_tester.exceptions import TransactionFailed
 from web3 import Web3, EthereumTesterProvider
 
 
-def deploy_contract(interface):
-    w3 = Web3(EthereumTesterProvider())
+def _deploy_contract(w3, interface):
     txn_hash = w3.eth.contract(**interface).constructor().transact()
     address = w3.eth.waitForTransactionReceipt(txn_hash)['contractAddress']
     return w3.eth.contract(address, **interface)
+
+
+def _validate_invariant(w3, interface, invariant):
+    contract = _deploy_contract(w3, interface)
+    # TODO Detect if invariant modifies state, bad!
+    snapshot = w3.testing.snapshot()
+    try:
+        invariant(contract)
+    except e:
+        raise e  # TODO Handle this, give better error
+    finally:
+        w3.testing.revert(snapshot)
 
 
 def _validate_interface(interface):
@@ -41,15 +52,16 @@ def build_test(interface):
     def test_builder(invariant):
         """
         """
-        # TODO Validate interface
-        # TODO Validate invariant functions
+        # Create a Web3/Testnet object per testcase
+        w3 = Web3(EthereumTesterProvider())
+        _validate_invariant(w3, interface, invariant)
 
         class InstrumentedContract(GenericStateMachine):
 
             def __init__(self):
                 # Deploy contract
                 # TODO Handle deploying contracts w/ constructor args
-                self._contract = deploy_contract(interface)
+                self._contract = _deploy_contract(w3, interface)
 
                 # Initialize GenericStateMachine
                 super(InstrumentedContract, self).__init__()
