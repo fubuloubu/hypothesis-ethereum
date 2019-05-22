@@ -31,6 +31,10 @@ def _validate_invariant(w3, interface, invariant, args_st=None):
         w3.testing.revert(snapshot)
 
 
+def _get_caller_strategy(w3):
+    return st.one_of(w3.eth.accounts)
+
+
 def _deploy_contract(w3, interface, args_st=None):
     if args_st:
         txn_hash = st.builds(
@@ -73,6 +77,9 @@ def build_test(interface):
         # Create a Web3/Testnet object per testcase
         w3 = Web3(EthereumTesterProvider())
         _validate_invariant(w3, interface, invariant)
+
+        # Cache caller strategy
+        caller_st = _get_caller_strategy(w3)
 
         # Take snapshot to reset Testnet to this starting point
         snapshot = w3.testing.snapshot()
