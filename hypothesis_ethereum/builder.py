@@ -74,9 +74,15 @@ def build_test(interface):
         w3 = Web3(EthereumTesterProvider())
         _validate_invariant(w3, interface, invariant)
 
+        # Take snapshot to reset Testnet to this starting point
+        snapshot = w3.testing.snapshot()
+
         class InstrumentedContract(GenericStateMachine):
 
             def __init__(self):
+                # Revert chain to prior to deployment
+                w3.testing.revert(snapshot)
+
                 # Deploy contract
                 # TODO Handle deploying contracts w/ constructor args
                 self._contract = _deploy_contract(w3, interface, args_st=deployment_st)
