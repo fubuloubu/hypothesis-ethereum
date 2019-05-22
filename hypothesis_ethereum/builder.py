@@ -56,12 +56,26 @@ def _build_deployment_strategy(contract_abi):
     return [get_abi_strategy(arg['type']) for arg in fn_abi[0]['inputs']]
 
 
-def build_call_strategies(contract):
+def _build_fn_strategies(contract_abi):
     state_modifying_functions = \
-            [f for f in contract.all_functions() if not f.abi['constant']]
+            [fn_abi for fn_abi in contract_abi if not fn_abi['constant']]
+
+    for fn_abi in state_modifying_functions:
+        args_sts = [get_abi_strategy(arg['type']) for arg in fn_abi['inputs']]
+        yield (fn_abi['name'], args_sts)
+
+
+def _build_txn_strategies(contract, fn_sts):
+    state_modifying_functions = [
+            f for f in contract.all_functions() if not f.abi['constant']
+        ]
+
+    fn_calls = []
     for fn in state_modifying_functions:
         args_strategy = [get_abi_strategy(arg['type']) for arg in fn.abi['inputs']]
-        yield st.builds(fn, *args_strategy)
+        fn_calls.append(st.builds(fn, *args_strategy))
+
+    return st.one_of(*fn_calls)
 
 
 def build_test(interface):
@@ -70,6 +84,9 @@ def build_test(interface):
 
     # Cache strategy for constructor deployment
     deployment_st = _build_deployment_strategy(interface['abi'])
+
+    # Cache function call strategies
+    fn_sts = _build_fn_strategies(interface['abi'])
 
     def test_builder(invariant):
         """
@@ -100,7 +117,7 @@ def build_test(interface):
             def steps(self):
                 # Generate call strategies
                 # TODO Maybe cache this?
-                return st.one_of(*build_call_strategies(self._contract))
+                return _build_txn_strategies(self._contract, fn_sts)
 
             def execute_step(self, step):
                 try:
