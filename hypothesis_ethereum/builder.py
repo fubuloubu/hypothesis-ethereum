@@ -1,10 +1,23 @@
 from hypothesis import strategies as st
 from hypothesis.stateful import GenericStateMachine
 
+from eth.exceptions import (
+    InvalidInstruction,
+    OutOfGas,
+    InsufficientStack,
+    FullStack,
+    InvalidJumpDestination,
+    InsufficientFunds,
+    StackDepthLimit,
+    WriteProtection,
+)
 from eth_abi.tools import get_abi_strategy
 from eth_tester.exceptions import TransactionFailed
 
-from web3 import Web3, EthereumTesterProvider
+from web3 import (
+    Web3,
+    EthereumTesterProvider,
+)
 
 
 def _validate_interface(interface):
@@ -118,12 +131,16 @@ def build_test(interface):
                 fn, txn_dict = step
                 try:
                     fn.transact(txn_dict)
-                except TransactionFailed:
-                    # May fail, but that's okay because failure means it was caught!
-                    pass
-                # TODO Handle OutOfGas
-                # TODO Handle InvalidOpcode
-                # TODO Handle other exceptional scenarios
+                except TransactionFailed as e:
+                    # Catch exception scenarios
+                    # TODO Better errors raised here
+                    assert not isinstance(e.__cause__, InvalidInstruction)
+                    assert not isinstance(e.__cause__, (InsufficientStack, FullStack, StackDepthLimit))
+                    assert not isinstance(e.__cause__, InvalidJumpDestination)
+                    assert not isinstance(e.__cause__, InsufficientFunds)
+                    assert not isinstance(e.__cause__, OutOfGas)
+                    assert not isinstance(e.__cause__, WriteProtection)
+                    # May revert, but that's okay because reverting means it was caught!
 
             def check_invariants(self):
                 invariant(self._contract)
