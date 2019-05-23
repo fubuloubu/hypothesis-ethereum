@@ -32,7 +32,7 @@ def _validate_invariant(w3, interface, invariant, args_st=None):
 
 
 def _get_caller_strategy(w3):
-    return st.one_of(w3.eth.accounts)
+    return st.sampled_from(w3.eth.accounts)
 
 
 def _deploy_contract(w3, interface, args_st=None):
