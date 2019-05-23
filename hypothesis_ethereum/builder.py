@@ -67,16 +67,16 @@ def _build_fn_strategies(contract_abi):
 
 
 def _build_txn_strategies(contract, fn_sts):
+    # Cache caller strategy
+    caller_st = _get_caller_strategy(contract.web3).map(lambda a: {'from': a})
+
     # Build a function call strategy for the given arg strategy
     def build_call(fn_name, args_sts):
         fn = getattr(contract.functions, fn_name)
-        return st.builds(fn, *args_sts)
+        return st.tuples(st.builds(fn, *args_sts), caller_st)
 
     # The transaction strategy is one of the available state-modifying calls
-    call_st = st.one_of([build_call(fn, args_sts) for fn, args_sts in fn_sts])
-    # TODO Build transaction w/ caller instead of call via:
-    #           fn_call.transact({'from': caller})
-    return call_st
+    return st.one_of([build_call(fn, args_sts) for fn, args_sts in fn_sts])
 
 
 def build_test(interface):
@@ -110,12 +110,14 @@ def build_test(interface):
                 super(InstrumentedContract, self).__init__()
 
             def steps(self):
-                # Generate call strategies
+                # Generates function call and transaction params combo
                 return _build_txn_strategies(self._contract, fn_sts)
 
             def execute_step(self, step):
+                # Pull out function call and transaction params from tuple
+                fn, txn_dict = step
                 try:
-                    step.transact()
+                    fn.transact(txn_dict)
                 except TransactionFailed:
                     # May fail, but that's okay because failure means it was caught!
                     pass
