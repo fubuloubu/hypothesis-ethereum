@@ -36,6 +36,7 @@ def _get_caller_strategy(w3):
 
 
 def _deploy_contract(w3, interface, args_st=None):
+    # Note: contract is always deployed from account[0]
     if args_st:
         txn_hash = st.builds(
                 w3.eth.contract(**interface).constructor, *args_st
@@ -89,14 +90,9 @@ def build_test(interface):
     fn_sts = tuple(_build_fn_strategies(interface['abi']))
 
     def test_builder(invariant):
-        """
-        """
         # Create a Web3/Testnet object per testcase
         w3 = Web3(EthereumTesterProvider())
         _validate_invariant(w3, interface, invariant)
-
-        # Cache caller strategy
-        caller_st = _get_caller_strategy(w3)
 
         # Take snapshot to reset Testnet to this starting point
         snapshot = w3.testing.snapshot()
