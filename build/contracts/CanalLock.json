@@ -375,31 +375,51 @@
             {
               "ast_type": "Assert",
               "col_offset": 8,
-              "end_col_offset": 30,
+              "end_col_offset": 34,
               "end_lineno": 15,
               "lineno": 15,
               "msg": null,
               "node_id": 47,
-              "src": "541:22:0",
+              "src": "541:26:0",
               "test": {
-                "ast_type": "Attribute",
-                "attr": "gate2_down",
+                "ast_type": "UnaryOp",
                 "col_offset": 15,
-                "end_col_offset": 30,
+                "end_col_offset": 34,
                 "end_lineno": 15,
+                "left": null,
                 "lineno": 15,
                 "node_id": 48,
-                "src": "548:15:0",
-                "value": {
-                  "ast_type": "Name",
-                  "col_offset": 15,
-                  "end_col_offset": 19,
+                "op": {
+                  "ast_type": "Not",
+                  "col_offset": null,
+                  "end_col_offset": null,
+                  "end_lineno": null,
+                  "lineno": null,
+                  "node_id": 62,
+                  "src": null
+                },
+                "operand": {
+                  "ast_type": "Attribute",
+                  "attr": "gate2_down",
+                  "col_offset": 19,
+                  "end_col_offset": 34,
                   "end_lineno": 15,
-                  "id": "self",
                   "lineno": 15,
-                  "node_id": 49,
-                  "src": "548:4:0"
-                }
+                  "node_id": 50,
+                  "src": "552:15:0",
+                  "value": {
+                    "ast_type": "Name",
+                    "col_offset": 19,
+                    "end_col_offset": 23,
+                    "end_lineno": 15,
+                    "id": "self",
+                    "lineno": 15,
+                    "node_id": 51,
+                    "src": "552:4:0"
+                  }
+                },
+                "right": null,
+                "src": "548:19:0"
               }
             },
             {
@@ -408,8 +428,8 @@
               "end_col_offset": 30,
               "end_lineno": 16,
               "lineno": 16,
-              "node_id": 52,
-              "src": "585:22:0",
+              "node_id": 54,
+              "src": "589:22:0",
               "targets": [
                 {
                   "ast_type": "Attribute",
@@ -418,8 +438,8 @@
                   "end_col_offset": 23,
                   "end_lineno": 16,
                   "lineno": 16,
-                  "node_id": 53,
-                  "src": "585:15:0",
+                  "node_id": 55,
+                  "src": "589:15:0",
                   "value": {
                     "ast_type": "Name",
                     "col_offset": 8,
@@ -427,8 +447,8 @@
                     "end_lineno": 16,
                     "id": "self",
                     "lineno": 16,
-                    "node_id": 54,
-                    "src": "585:4:0"
+                    "node_id": 56,
+                    "src": "589:4:0"
                   }
                 }
               ],
@@ -438,8 +458,8 @@
                 "end_col_offset": 30,
                 "end_lineno": 16,
                 "lineno": 16,
-                "node_id": 57,
-                "src": "603:4:0",
+                "node_id": 59,
+                "src": "607:4:0",
                 "value": true
               }
             }
@@ -457,8 +477,8 @@
               "end_lineno": 19,
               "lineno": 19,
               "msg": null,
-              "node_id": 58,
-              "src": "724:26:0",
+              "node_id": 60,
+              "src": "728:26:0",
               "test": {
                 "ast_type": "UnaryOp",
                 "col_offset": 15,
@@ -466,14 +486,14 @@
                 "end_lineno": 19,
                 "left": null,
                 "lineno": 19,
-                "node_id": 59,
+                "node_id": 61,
                 "op": {
                   "ast_type": "Not",
                   "col_offset": null,
                   "end_col_offset": null,
                   "end_lineno": null,
                   "lineno": null,
-                  "node_id": 60,
+                  "node_id": 62,
                   "src": null
                 },
                 "operand": {
@@ -483,8 +503,8 @@
                   "end_col_offset": 34,
                   "end_lineno": 19,
                   "lineno": 19,
-                  "node_id": 61,
-                  "src": "735:15:0",
+                  "node_id": 63,
+                  "src": "739:15:0",
                   "value": {
                     "ast_type": "Name",
                     "col_offset": 19,
@@ -492,12 +512,12 @@
                     "end_lineno": 19,
                     "id": "self",
                     "lineno": 19,
-                    "node_id": 62,
-                    "src": "735:4:0"
+                    "node_id": 64,
+                    "src": "739:4:0"
                   }
                 },
                 "right": null,
-                "src": "731:19:0"
+                "src": "735:19:0"
               }
             },
             {
@@ -506,8 +526,8 @@
               "end_col_offset": 30,
               "end_lineno": 20,
               "lineno": 20,
-              "node_id": 65,
-              "src": "759:22:0",
+              "node_id": 67,
+              "src": "763:22:0",
               "targets": [
                 {
                   "ast_type": "Attribute",
@@ -516,8 +536,8 @@
                   "end_col_offset": 23,
                   "end_lineno": 20,
                   "lineno": 20,
-                  "node_id": 66,
-                  "src": "759:15:0",
+                  "node_id": 68,
+                  "src": "763:15:0",
                   "value": {
                     "ast_type": "Name",
                     "col_offset": 8,
@@ -525,8 +545,8 @@
                     "end_lineno": 20,
                     "id": "self",
                     "lineno": 20,
-                    "node_id": 67,
-                    "src": "759:4:0"
+                    "node_id": 69,
+                    "src": "763:4:0"
                   }
                 }
               ],
@@ -536,13 +556,13 @@
                 "end_col_offset": 30,
                 "end_lineno": 20,
                 "lineno": 20,
-                "node_id": 70,
-                "src": "777:4:0",
+                "node_id": 72,
+                "src": "781:4:0",
                 "value": true
               }
             }
           ],
-          "src": "445:336:0",
+          "src": "445:340:0",
           "test": {
             "ast_type": "Name",
             "col_offset": 7,
@@ -564,7 +584,7 @@
           "end_lineno": 11,
           "id": "public",
           "lineno": 11,
-          "node_id": 71,
+          "node_id": 73,
           "src": "400:6:0"
         }
       ],
@@ -575,11 +595,11 @@
       "node_id": 39,
       "pos": null,
       "returns": null,
-      "src": "399:382:0"
+      "src": "399:386:0"
     }
   ],
-  "bytecode": "0x61019956600436101561000d5761018f565b600035601c52740100000000000000000000000000000000000000006020526f7fffffffffffffffffffffffffffffff6040527fffffffffffffffffffffffffffffffff8000000000000000000000000000000060605274012a05f1fffffffffffffffffffffffffdabf41c006080527ffffffffffffffffffffffffed5fa0e000000000000000000000000000000000060a052637db44ad360005114156100e55734156100ba57600080fd5b600435600281106100ca57600080fd5b50600435156100dd5760006000556100e3565b60006001555b005b6365acbc5a60005114156101425734156100fe57600080fd5b6004356002811061010e57600080fd5b506004351561012d5760015461012357600080fd5b6001600055610140565b6000541561013a57600080fd5b60016001555b005b611d9b600051141561016757341561015957600080fd5b60005460005260206000f350005b6355ff1842600051141561018e57341561018057600080fd5b60015460005260206000f350005b5b60006000fd5b61000461019903610004600039610004610199036000f3",
-  "bytecodeSha1": "0cfb474188334257007fd61e612d67981bf39b88",
+  "bytecode": "0x61019a56600436101561000d57610190565b600035601c52740100000000000000000000000000000000000000006020526f7fffffffffffffffffffffffffffffff6040527fffffffffffffffffffffffffffffffff8000000000000000000000000000000060605274012a05f1fffffffffffffffffffffffffdabf41c006080527ffffffffffffffffffffffffed5fa0e000000000000000000000000000000000060a052637db44ad360005114156100e55734156100ba57600080fd5b600435600281106100ca57600080fd5b50600435156100dd5760006000556100e3565b60006001555b005b6365acbc5a60005114156101435734156100fe57600080fd5b6004356002811061010e57600080fd5b506004351561012e576001541561012457600080fd5b6001600055610141565b6000541561013b57600080fd5b60016001555b005b611d9b600051141561016857341561015a57600080fd5b60005460005260206000f350005b6355ff1842600051141561018f57341561018157600080fd5b60015460005260206000f350005b5b60006000fd5b61000461019a0361000460003961000461019a036000f3",
+  "bytecodeSha1": "a2aa0e388fca74cb7e0db6e919df426237e97998",
   "compiler": {
     "evm_version": "petersburg",
     "minify_source": false,
@@ -597,12 +617,12 @@
           ],
           "5": [
             541,
-            563,
+            567,
             true
           ],
           "8": [
-            724,
-            750,
+            728,
+            754,
             true
           ]
         },
@@ -620,19 +640,19 @@
         "CanalLock.lower_gate": {
           "4": [
             541,
-            563
+            567
           ],
           "6": [
-            585,
-            600
+            589,
+            604
           ],
           "7": [
-            724,
-            750
+            728,
+            754
           ],
           "9": [
-            759,
-            774
+            763,
+            778
           ]
         },
         "CanalLock.raise_gate": {
@@ -649,19 +669,19 @@
     }
   },
   "dependencies": [],
-  "deployedBytecode": "0x600436101561000d5761018f565b600035601c52740100000000000000000000000000000000000000006020526f7fffffffffffffffffffffffffffffff6040527fffffffffffffffffffffffffffffffff8000000000000000000000000000000060605274012a05f1fffffffffffffffffffffffffdabf41c006080527ffffffffffffffffffffffffed5fa0e000000000000000000000000000000000060a052637db44ad360005114156100e55734156100ba57600080fd5b600435600281106100ca57600080fd5b50600435156100dd5760006000556100e3565b60006001555b005b6365acbc5a60005114156101425734156100fe57600080fd5b6004356002811061010e57600080fd5b506004351561012d5760015461012357600080fd5b6001600055610140565b6000541561013a57600080fd5b60016001555b005b611d9b600051141561016757341561015957600080fd5b60005460005260206000f350005b6355ff1842600051141561018e57341561018057600080fd5b60015460005260206000f350005b5b60006000fd",
-  "deployedSourceMap": "-1:-1:0:-;;;;;:::-;;:::-;:::-;;;;;;;;;;;;;;;;;;;;185:173;;;;;;:::-;;;;:::-;;;;:::-;-1:-1;;;185:173;;;:::-;;;;:::-;;234:10;231:127;;;:::-;-1:-1;254:15;:23;231:127;:::-;:::-;-1:-1;335:15;:23;231:127::-;185:173;:::-;399:382;;;;;;:::-;;;;:::-;;;;:::-;-1:-1;;;399:382;;;:::-;;;;:::-;;448:10;445:336;;;:::-;548:15;541:22;;:::-;;;;:::-;-1:-1;585:15;:22;445:336;:::-;:::-;735:15;731:19;;724:26;:::-;;;;:::-;-1:-1;759:15;:22;445:336::-;399:382;:::-;0:24;;;;;;:::-;;;;:::-;;;;:::-;;;;;;;;;;:::-;92;;;;;;:::-;;;;:::-;;;;:::-;;;;;;;;;;:::-;-1:-1::-;;;;",
+  "deployedBytecode": "0x600436101561000d57610190565b600035601c52740100000000000000000000000000000000000000006020526f7fffffffffffffffffffffffffffffff6040527fffffffffffffffffffffffffffffffff8000000000000000000000000000000060605274012a05f1fffffffffffffffffffffffffdabf41c006080527ffffffffffffffffffffffffed5fa0e000000000000000000000000000000000060a052637db44ad360005114156100e55734156100ba57600080fd5b600435600281106100ca57600080fd5b50600435156100dd5760006000556100e3565b60006001555b005b6365acbc5a60005114156101435734156100fe57600080fd5b6004356002811061010e57600080fd5b506004351561012e576001541561012457600080fd5b6001600055610141565b6000541561013b57600080fd5b60016001555b005b611d9b600051141561016857341561015a57600080fd5b60005460005260206000f350005b6355ff1842600051141561018f57341561018157600080fd5b60015460005260206000f350005b5b60006000fd",
+  "deployedSourceMap": "-1:-1:0:-;;;;;:::-;;:::-;:::-;;;;;;;;;;;;;;;;;;;;185:173;;;;;;:::-;;;;:::-;;;;:::-;-1:-1;;;185:173;;;:::-;;;;:::-;;234:10;231:127;;;:::-;-1:-1;254:15;:23;231:127;:::-;:::-;-1:-1;335:15;:23;231:127::-;185:173;:::-;399:386;;;;;;:::-;;;;:::-;;;;:::-;-1:-1;;;399:386;;;:::-;;;;:::-;;448:10;445:340;;;:::-;552:15;548:19;;541:26;:::-;;;;:::-;-1:-1;589:15;:22;445:340;:::-;:::-;739:15;735:19;;728:26;:::-;;;;:::-;-1:-1;763:15;:22;445:340::-;399:386;:::-;0:24;;;;;;:::-;;;;:::-;;;;:::-;;;;;;;;;;:::-;92;;;;;;:::-;;;;:::-;;;;:::-;;;;;;;;;;:::-;-1:-1::-;;;;",
   "language": "Vyper",
   "offset": [
     0,
-    823
+    827
   ],
-  "opcodes": "PUSH1 0x04 CALLDATASIZE LT ISZERO PUSH2 0x000D JUMPI PUSH2 0x018F JUMP JUMPDEST PUSH1 0x00 CALLDATALOAD PUSH1 0x1C MSTORE PUSH21 0x010000000000000000000000000000000000000000 PUSH1 0x20 MSTORE PUSH16 0x7FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF PUSH1 0x40 MSTORE PUSH32 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF80000000000000000000000000000000 PUSH1 0x60 MSTORE PUSH21 0x012A05F1FFFFFFFFFFFFFFFFFFFFFFFFFDABF41C00 PUSH1 0x80 MSTORE PUSH32 0xFFFFFFFFFFFFFFFFFFFFFFFED5FA0E0000000000000000000000000000000000 PUSH1 0xA0 MSTORE PUSH4 0x7DB44AD3 PUSH1 0x00 MLOAD EQ ISZERO PUSH2 0x00E5 JUMPI CALLVALUE ISZERO PUSH2 0x00BA JUMPI PUSH1 0x00 DUP1 REVERT JUMPDEST PUSH1 0x04 CALLDATALOAD PUSH1 0x02 DUP2 LT PUSH2 0x00CA JUMPI PUSH1 0x00 DUP1 REVERT JUMPDEST POP PUSH1 0x04 CALLDATALOAD ISZERO PUSH2 0x00DD JUMPI PUSH1 0x00 PUSH1 0x00 SSTORE PUSH2 0x00E3 JUMP JUMPDEST PUSH1 0x00 PUSH1 0x01 SSTORE JUMPDEST STOP JUMPDEST PUSH4 0x65ACBC5A PUSH1 0x00 MLOAD EQ ISZERO PUSH2 0x0142 JUMPI CALLVALUE ISZERO PUSH2 0x00FE JUMPI PUSH1 0x00 DUP1 REVERT JUMPDEST PUSH1 0x04 CALLDATALOAD PUSH1 0x02 DUP2 LT PUSH2 0x010E JUMPI PUSH1 0x00 DUP1 REVERT JUMPDEST POP PUSH1 0x04 CALLDATALOAD ISZERO PUSH2 0x012D JUMPI PUSH1 0x01 SLOAD PUSH2 0x0123 JUMPI PUSH1 0x00 DUP1 REVERT JUMPDEST PUSH1 0x01 PUSH1 0x00 SSTORE PUSH2 0x0140 JUMP JUMPDEST PUSH1 0x00 SLOAD ISZERO PUSH2 0x013A JUMPI PUSH1 0x00 DUP1 REVERT JUMPDEST PUSH1 0x01 PUSH1 0x01 SSTORE JUMPDEST STOP JUMPDEST PUSH2 0x1D9B PUSH1 0x00 MLOAD EQ ISZERO PUSH2 0x0167 JUMPI CALLVALUE ISZERO PUSH2 0x0159 JUMPI PUSH1 0x00 DUP1 REVERT JUMPDEST PUSH1 0x00 SLOAD PUSH1 0x00 MSTORE PUSH1 0x20 PUSH1 0x00 RETURN POP STOP JUMPDEST PUSH4 0x55FF1842 PUSH1 0x00 MLOAD EQ ISZERO PUSH2 0x018E JUMPI CALLVALUE ISZERO PUSH2 0x0180 JUMPI PUSH1 0x00 DUP1 REVERT JUMPDEST PUSH1 0x01 SLOAD PUSH1 0x00 MSTORE PUSH1 0x20 PUSH1 0x00 RETURN POP STOP JUMPDEST JUMPDEST PUSH1 0x00 PUSH1 0x00 REVERT",
+  "opcodes": "PUSH1 0x04 CALLDATASIZE LT ISZERO PUSH2 0x000D JUMPI PUSH2 0x0190 JUMP JUMPDEST PUSH1 0x00 CALLDATALOAD PUSH1 0x1C MSTORE PUSH21 0x010000000000000000000000000000000000000000 PUSH1 0x20 MSTORE PUSH16 0x7FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF PUSH1 0x40 MSTORE PUSH32 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF80000000000000000000000000000000 PUSH1 0x60 MSTORE PUSH21 0x012A05F1FFFFFFFFFFFFFFFFFFFFFFFFFDABF41C00 PUSH1 0x80 MSTORE PUSH32 0xFFFFFFFFFFFFFFFFFFFFFFFED5FA0E0000000000000000000000000000000000 PUSH1 0xA0 MSTORE PUSH4 0x7DB44AD3 PUSH1 0x00 MLOAD EQ ISZERO PUSH2 0x00E5 JUMPI CALLVALUE ISZERO PUSH2 0x00BA JUMPI PUSH1 0x00 DUP1 REVERT JUMPDEST PUSH1 0x04 CALLDATALOAD PUSH1 0x02 DUP2 LT PUSH2 0x00CA JUMPI PUSH1 0x00 DUP1 REVERT JUMPDEST POP PUSH1 0x04 CALLDATALOAD ISZERO PUSH2 0x00DD JUMPI PUSH1 0x00 PUSH1 0x00 SSTORE PUSH2 0x00E3 JUMP JUMPDEST PUSH1 0x00 PUSH1 0x01 SSTORE JUMPDEST STOP JUMPDEST PUSH4 0x65ACBC5A PUSH1 0x00 MLOAD EQ ISZERO PUSH2 0x0143 JUMPI CALLVALUE ISZERO PUSH2 0x00FE JUMPI PUSH1 0x00 DUP1 REVERT JUMPDEST PUSH1 0x04 CALLDATALOAD PUSH1 0x02 DUP2 LT PUSH2 0x010E JUMPI PUSH1 0x00 DUP1 REVERT JUMPDEST POP PUSH1 0x04 CALLDATALOAD ISZERO PUSH2 0x012E JUMPI PUSH1 0x01 SLOAD ISZERO PUSH2 0x0124 JUMPI PUSH1 0x00 DUP1 REVERT JUMPDEST PUSH1 0x01 PUSH1 0x00 SSTORE PUSH2 0x0141 JUMP JUMPDEST PUSH1 0x00 SLOAD ISZERO PUSH2 0x013B JUMPI PUSH1 0x00 DUP1 REVERT JUMPDEST PUSH1 0x01 PUSH1 0x01 SSTORE JUMPDEST STOP JUMPDEST PUSH2 0x1D9B PUSH1 0x00 MLOAD EQ ISZERO PUSH2 0x0168 JUMPI CALLVALUE ISZERO PUSH2 0x015A JUMPI PUSH1 0x00 DUP1 REVERT JUMPDEST PUSH1 0x00 SLOAD PUSH1 0x00 MSTORE PUSH1 0x20 PUSH1 0x00 RETURN POP STOP JUMPDEST PUSH4 0x55FF1842 PUSH1 0x00 MLOAD EQ ISZERO PUSH2 0x018F JUMPI CALLVALUE ISZERO PUSH2 0x0181 JUMPI PUSH1 0x00 DUP1 REVERT JUMPDEST PUSH1 0x01 SLOAD PUSH1 0x00 MSTORE PUSH1 0x20 PUSH1 0x00 RETURN POP STOP JUMPDEST JUMPDEST PUSH1 0x00 PUSH1 0x00 REVERT",
   "pcMap": {
     "0": {
       "offset": [
         0,
-        781
+        785
       ],
       "op": "PUSH1",
       "path": "contracts/CanalLock.vy",
@@ -685,7 +705,7 @@
     },
     "9": {
       "op": "PUSH2",
-      "value": "0x018F"
+      "value": "0x0190"
     },
     "12": {
       "op": "JUMP"
@@ -1152,7 +1172,7 @@
       "fn": "CanalLock.lower_gate",
       "offset": [
         399,
-        781
+        785
       ],
       "op": "PUSH4",
       "path": "contracts/CanalLock.vy",
@@ -1162,7 +1182,7 @@
       "fn": "CanalLock.lower_gate",
       "offset": [
         399,
-        781
+        785
       ],
       "op": "PUSH1",
       "path": "contracts/CanalLock.vy",
@@ -1172,7 +1192,7 @@
       "fn": "CanalLock.lower_gate",
       "offset": [
         399,
-        781
+        785
       ],
       "op": "MLOAD",
       "path": "contracts/CanalLock.vy"
@@ -1181,7 +1201,7 @@
       "fn": "CanalLock.lower_gate",
       "offset": [
         399,
-        781
+        785
       ],
       "op": "EQ",
       "path": "contracts/CanalLock.vy"
@@ -1190,7 +1210,7 @@
       "fn": "CanalLock.lower_gate",
       "offset": [
         399,
-        781
+        785
       ],
       "op": "ISZERO",
       "path": "contracts/CanalLock.vy"
@@ -1199,17 +1219,17 @@
       "fn": "CanalLock.lower_gate",
       "offset": [
         399,
-        781
+        785
       ],
       "op": "PUSH2",
       "path": "contracts/CanalLock.vy",
-      "value": "0x0142"
+      "value": "0x0143"
     },
     "243": {
       "fn": "CanalLock.lower_gate",
       "offset": [
         399,
-        781
+        785
       ],
       "op": "JUMPI",
       "path": "contracts/CanalLock.vy"
@@ -1218,7 +1238,7 @@
       "fn": "CanalLock.lower_gate",
       "offset": [
         399,
-        781
+        785
       ],
       "op": "CALLVALUE",
       "path": "contracts/CanalLock.vy"
@@ -1227,7 +1247,7 @@
       "fn": "CanalLock.lower_gate",
       "offset": [
         399,
-        781
+        785
       ],
       "op": "ISZERO",
       "path": "contracts/CanalLock.vy"
@@ -1236,7 +1256,7 @@
       "fn": "CanalLock.lower_gate",
       "offset": [
         399,
-        781
+        785
       ],
       "op": "PUSH2",
       "path": "contracts/CanalLock.vy",
@@ -1246,7 +1266,7 @@
       "fn": "CanalLock.lower_gate",
       "offset": [
         399,
-        781
+        785
       ],
       "op": "JUMPI",
       "path": "contracts/CanalLock.vy"
@@ -1255,7 +1275,7 @@
       "fn": "CanalLock.lower_gate",
       "offset": [
         399,
-        781
+        785
       ],
       "op": "PUSH1",
       "path": "contracts/CanalLock.vy",
@@ -1265,7 +1285,7 @@
       "fn": "CanalLock.lower_gate",
       "offset": [
         399,
-        781
+        785
       ],
       "op": "DUP1",
       "path": "contracts/CanalLock.vy"
@@ -1275,7 +1295,7 @@
       "fn": "CanalLock.lower_gate",
       "offset": [
         399,
-        781
+        785
       ],
       "op": "REVERT",
       "path": "contracts/CanalLock.vy"
@@ -1284,7 +1304,7 @@
       "fn": "CanalLock.lower_gate",
       "offset": [
         399,
-        781
+        785
       ],
       "op": "JUMPDEST",
       "path": "contracts/CanalLock.vy"
@@ -1304,7 +1324,7 @@
       "fn": "CanalLock.lower_gate",
       "offset": [
         399,
-        781
+        785
       ],
       "op": "DUP2",
       "path": "contracts/CanalLock.vy"
@@ -1313,7 +1333,7 @@
       "fn": "CanalLock.lower_gate",
       "offset": [
         399,
-        781
+        785
       ],
       "op": "LT",
       "path": "contracts/CanalLock.vy"
@@ -1322,7 +1342,7 @@
       "fn": "CanalLock.lower_gate",
       "offset": [
         399,
-        781
+        785
       ],
       "op": "PUSH2",
       "path": "contracts/CanalLock.vy",
@@ -1332,7 +1352,7 @@
       "fn": "CanalLock.lower_gate",
       "offset": [
         399,
-        781
+        785
       ],
       "op": "JUMPI",
       "path": "contracts/CanalLock.vy"
@@ -1341,7 +1361,7 @@
       "fn": "CanalLock.lower_gate",
       "offset": [
         399,
-        781
+        785
       ],
       "op": "PUSH1",
       "path": "contracts/CanalLock.vy",
@@ -1351,7 +1371,7 @@
       "fn": "CanalLock.lower_gate",
       "offset": [
         399,
-        781
+        785
       ],
       "op": "DUP1",
       "path": "contracts/CanalLock.vy"
@@ -1360,7 +1380,7 @@
       "fn": "CanalLock.lower_gate",
       "offset": [
         399,
-        781
+        785
       ],
       "op": "REVERT",
       "path": "contracts/CanalLock.vy"
@@ -1369,7 +1389,7 @@
       "fn": "CanalLock.lower_gate",
       "offset": [
         399,
-        781
+        785
       ],
       "op": "JUMPDEST",
       "path": "contracts/CanalLock.vy"
@@ -1378,7 +1398,7 @@
       "fn": "CanalLock.lower_gate",
       "offset": [
         399,
-        781
+        785
       ],
       "op": "POP",
       "path": "contracts/CanalLock.vy"
@@ -1397,7 +1417,7 @@
       "fn": "CanalLock.lower_gate",
       "offset": [
         445,
-        781
+        785
       ],
       "op": "CALLDATALOAD",
       "path": "contracts/CanalLock.vy"
@@ -1406,7 +1426,7 @@
       "fn": "CanalLock.lower_gate",
       "offset": [
         445,
-        781
+        785
       ],
       "op": "ISZERO",
       "path": "contracts/CanalLock.vy"
@@ -1415,18 +1435,18 @@
       "fn": "CanalLock.lower_gate",
       "offset": [
         445,
-        781
+        785
       ],
       "op": "PUSH2",
       "path": "contracts/CanalLock.vy",
-      "value": "0x012D"
+      "value": "0x012E"
     },
     "279": {
       "branch": 3,
       "fn": "CanalLock.lower_gate",
       "offset": [
         445,
-        781
+        785
       ],
       "op": "JUMPI",
       "path": "contracts/CanalLock.vy"
@@ -1434,8 +1454,8 @@
     "280": {
       "fn": "CanalLock.lower_gate",
       "offset": [
-        548,
-        563
+        552,
+        567
       ],
       "op": "PUSH1",
       "path": "contracts/CanalLock.vy",
@@ -1445,8 +1465,8 @@
     "282": {
       "fn": "CanalLock.lower_gate",
       "offset": [
-        541,
-        563
+        548,
+        567
       ],
       "op": "SLOAD",
       "path": "contracts/CanalLock.vy"
@@ -1454,250 +1474,259 @@
     "283": {
       "fn": "CanalLock.lower_gate",
       "offset": [
+        548,
+        567
+      ],
+      "op": "ISZERO",
+      "path": "contracts/CanalLock.vy"
+    },
+    "284": {
+      "fn": "CanalLock.lower_gate",
+      "offset": [
         541,
-        563
+        567
       ],
       "op": "PUSH2",
       "path": "contracts/CanalLock.vy",
-      "value": "0x0123"
+      "value": "0x0124"
     },
-    "286": {
+    "287": {
       "branch": 5,
       "fn": "CanalLock.lower_gate",
       "offset": [
         541,
-        563
+        567
       ],
       "op": "JUMPI",
       "path": "contracts/CanalLock.vy"
     },
-    "287": {
+    "288": {
       "fn": "CanalLock.lower_gate",
       "offset": [
         541,
-        563
+        567
       ],
       "op": "PUSH1",
       "path": "contracts/CanalLock.vy",
       "value": "0x00"
     },
-    "289": {
-      "fn": "CanalLock.lower_gate",
-      "offset": [
-        541,
-        563
-      ],
-      "op": "DUP1",
-      "path": "contracts/CanalLock.vy"
-    },
     "290": {
       "fn": "CanalLock.lower_gate",
       "offset": [
         541,
-        563
+        567
       ],
-      "op": "REVERT",
+      "op": "DUP1",
       "path": "contracts/CanalLock.vy"
     },
     "291": {
       "fn": "CanalLock.lower_gate",
       "offset": [
         541,
-        563
+        567
+      ],
+      "op": "REVERT",
+      "path": "contracts/CanalLock.vy"
+    },
+    "292": {
+      "fn": "CanalLock.lower_gate",
+      "offset": [
+        541,
+        567
       ],
       "op": "JUMPDEST",
       "path": "contracts/CanalLock.vy"
     },
-    "292": {
+    "293": {
       "op": "PUSH1",
       "value": "0x01"
     },
-    "294": {
+    "295": {
       "fn": "CanalLock.lower_gate",
       "offset": [
-        585,
-        600
+        589,
+        604
       ],
       "op": "PUSH1",
       "path": "contracts/CanalLock.vy",
       "statement": 6,
       "value": "0x00"
     },
-    "296": {
+    "297": {
       "fn": "CanalLock.lower_gate",
       "offset": [
-        585,
-        607
+        589,
+        611
       ],
       "op": "SSTORE",
       "path": "contracts/CanalLock.vy"
     },
-    "297": {
+    "298": {
       "fn": "CanalLock.lower_gate",
       "offset": [
         445,
-        781
+        785
       ],
       "op": "PUSH2",
       "path": "contracts/CanalLock.vy",
-      "value": "0x0140"
-    },
-    "300": {
-      "fn": "CanalLock.lower_gate",
-      "offset": [
-        445,
-        781
-      ],
-      "op": "JUMP",
-      "path": "contracts/CanalLock.vy"
+      "value": "0x0141"
     },
     "301": {
       "fn": "CanalLock.lower_gate",
       "offset": [
         445,
-        781
+        785
       ],
-      "op": "JUMPDEST",
+      "op": "JUMP",
       "path": "contracts/CanalLock.vy"
     },
     "302": {
       "fn": "CanalLock.lower_gate",
       "offset": [
-        735,
-        750
+        445,
+        785
+      ],
+      "op": "JUMPDEST",
+      "path": "contracts/CanalLock.vy"
+    },
+    "303": {
+      "fn": "CanalLock.lower_gate",
+      "offset": [
+        739,
+        754
       ],
       "op": "PUSH1",
       "path": "contracts/CanalLock.vy",
       "statement": 7,
       "value": "0x00"
     },
-    "304": {
-      "fn": "CanalLock.lower_gate",
-      "offset": [
-        731,
-        750
-      ],
-      "op": "SLOAD",
-      "path": "contracts/CanalLock.vy"
-    },
     "305": {
       "fn": "CanalLock.lower_gate",
       "offset": [
-        731,
-        750
+        735,
+        754
       ],
-      "op": "ISZERO",
+      "op": "SLOAD",
       "path": "contracts/CanalLock.vy"
     },
     "306": {
       "fn": "CanalLock.lower_gate",
       "offset": [
-        724,
-        750
+        735,
+        754
+      ],
+      "op": "ISZERO",
+      "path": "contracts/CanalLock.vy"
+    },
+    "307": {
+      "fn": "CanalLock.lower_gate",
+      "offset": [
+        728,
+        754
       ],
       "op": "PUSH2",
       "path": "contracts/CanalLock.vy",
-      "value": "0x013A"
+      "value": "0x013B"
     },
-    "309": {
+    "310": {
       "branch": 8,
       "fn": "CanalLock.lower_gate",
       "offset": [
-        724,
-        750
+        728,
+        754
       ],
       "op": "JUMPI",
       "path": "contracts/CanalLock.vy"
     },
-    "310": {
+    "311": {
       "fn": "CanalLock.lower_gate",
       "offset": [
-        724,
-        750
+        728,
+        754
       ],
       "op": "PUSH1",
       "path": "contracts/CanalLock.vy",
       "value": "0x00"
     },
-    "312": {
-      "fn": "CanalLock.lower_gate",
-      "offset": [
-        724,
-        750
-      ],
-      "op": "DUP1",
-      "path": "contracts/CanalLock.vy"
-    },
     "313": {
       "fn": "CanalLock.lower_gate",
       "offset": [
-        724,
-        750
+        728,
+        754
       ],
-      "op": "REVERT",
+      "op": "DUP1",
       "path": "contracts/CanalLock.vy"
     },
     "314": {
       "fn": "CanalLock.lower_gate",
       "offset": [
-        724,
-        750
+        728,
+        754
+      ],
+      "op": "REVERT",
+      "path": "contracts/CanalLock.vy"
+    },
+    "315": {
+      "fn": "CanalLock.lower_gate",
+      "offset": [
+        728,
+        754
       ],
       "op": "JUMPDEST",
       "path": "contracts/CanalLock.vy"
     },
-    "315": {
+    "316": {
       "op": "PUSH1",
       "value": "0x01"
     },
-    "317": {
+    "318": {
       "fn": "CanalLock.lower_gate",
       "offset": [
-        759,
-        774
+        763,
+        778
       ],
       "op": "PUSH1",
       "path": "contracts/CanalLock.vy",
       "statement": 9,
       "value": "0x01"
     },
-    "319": {
-      "fn": "CanalLock.lower_gate",
-      "offset": [
-        759,
-        781
-      ],
-      "op": "SSTORE",
-      "path": "contracts/CanalLock.vy"
-    },
     "320": {
       "fn": "CanalLock.lower_gate",
       "offset": [
-        445,
-        781
+        763,
+        785
       ],
-      "op": "JUMPDEST",
+      "op": "SSTORE",
       "path": "contracts/CanalLock.vy"
     },
     "321": {
       "fn": "CanalLock.lower_gate",
       "offset": [
-        399,
-        781
+        445,
+        785
       ],
-      "op": "STOP",
+      "op": "JUMPDEST",
       "path": "contracts/CanalLock.vy"
     },
     "322": {
       "fn": "CanalLock.lower_gate",
       "offset": [
         399,
-        781
+        785
+      ],
+      "op": "STOP",
+      "path": "contracts/CanalLock.vy"
+    },
+    "323": {
+      "fn": "CanalLock.lower_gate",
+      "offset": [
+        399,
+        785
       ],
       "op": "JUMPDEST",
       "path": "contracts/CanalLock.vy"
     },
-    "323": {
+    "324": {
       "offset": [
         0,
         24
@@ -1706,7 +1735,7 @@
       "path": "contracts/CanalLock.vy",
       "value": "0x1D9B"
     },
-    "326": {
+    "327": {
       "offset": [
         0,
         24
@@ -1715,7 +1744,7 @@
       "path": "contracts/CanalLock.vy",
       "value": "0x00"
     },
-    "328": {
+    "329": {
       "offset": [
         0,
         24
@@ -1723,7 +1752,7 @@
       "op": "MLOAD",
       "path": "contracts/CanalLock.vy"
     },
-    "329": {
+    "330": {
       "offset": [
         0,
         24
@@ -1731,7 +1760,7 @@
       "op": "EQ",
       "path": "contracts/CanalLock.vy"
     },
-    "330": {
+    "331": {
       "offset": [
         0,
         24
@@ -1739,29 +1768,21 @@
       "op": "ISZERO",
       "path": "contracts/CanalLock.vy"
     },
-    "331": {
+    "332": {
       "offset": [
         0,
         24
       ],
       "op": "PUSH2",
       "path": "contracts/CanalLock.vy",
-      "value": "0x0167"
-    },
-    "334": {
-      "offset": [
-        0,
-        24
-      ],
-      "op": "JUMPI",
-      "path": "contracts/CanalLock.vy"
+      "value": "0x0168"
     },
     "335": {
       "offset": [
         0,
         24
       ],
-      "op": "CALLVALUE",
+      "op": "JUMPI",
       "path": "contracts/CanalLock.vy"
     },
     "336": {
@@ -1769,7 +1790,7 @@
         0,
         24
       ],
-      "op": "ISZERO",
+      "op": "CALLVALUE",
       "path": "contracts/CanalLock.vy"
     },
     "337": {
@@ -1777,11 +1798,19 @@
         0,
         24
       ],
+      "op": "ISZERO",
+      "path": "contracts/CanalLock.vy"
+    },
+    "338": {
+      "offset": [
+        0,
+        24
+      ],
       "op": "PUSH2",
       "path": "contracts/CanalLock.vy",
-      "value": "0x0159"
+      "value": "0x015A"
     },
-    "340": {
+    "341": {
       "offset": [
         0,
         24
@@ -1789,7 +1818,7 @@
       "op": "JUMPI",
       "path": "contracts/CanalLock.vy"
     },
-    "341": {
+    "342": {
       "offset": [
         0,
         24
@@ -1798,7 +1827,7 @@
       "path": "contracts/CanalLock.vy",
       "value": "0x00"
     },
-    "343": {
+    "344": {
       "offset": [
         0,
         24
@@ -1806,7 +1835,7 @@
       "op": "DUP1",
       "path": "contracts/CanalLock.vy"
     },
-    "344": {
+    "345": {
       "offset": [
         0,
         24
@@ -1814,7 +1843,7 @@
       "op": "REVERT",
       "path": "contracts/CanalLock.vy"
     },
-    "345": {
+    "346": {
       "offset": [
         0,
         24
@@ -1822,7 +1851,7 @@
       "op": "JUMPDEST",
       "path": "contracts/CanalLock.vy"
     },
-    "346": {
+    "347": {
       "offset": [
         0,
         24
@@ -1831,7 +1860,7 @@
       "path": "contracts/CanalLock.vy",
       "value": "0x00"
     },
-    "348": {
+    "349": {
       "offset": [
         0,
         24
@@ -1839,7 +1868,7 @@
       "op": "SLOAD",
       "path": "contracts/CanalLock.vy"
     },
-    "349": {
+    "350": {
       "offset": [
         0,
         24
@@ -1848,7 +1877,7 @@
       "path": "contracts/CanalLock.vy",
       "value": "0x00"
     },
-    "351": {
+    "352": {
       "offset": [
         0,
         24
@@ -1856,7 +1885,7 @@
       "op": "MSTORE",
       "path": "contracts/CanalLock.vy"
     },
-    "352": {
+    "353": {
       "offset": [
         0,
         24
@@ -1865,7 +1894,7 @@
       "path": "contracts/CanalLock.vy",
       "value": "0x20"
     },
-    "354": {
+    "355": {
       "offset": [
         0,
         24
@@ -1874,7 +1903,7 @@
       "path": "contracts/CanalLock.vy",
       "value": "0x00"
     },
-    "356": {
+    "357": {
       "offset": [
         0,
         24
@@ -1882,7 +1911,7 @@
       "op": "RETURN",
       "path": "contracts/CanalLock.vy"
     },
-    "357": {
+    "358": {
       "offset": [
         0,
         24
@@ -1890,7 +1919,7 @@
       "op": "POP",
       "path": "contracts/CanalLock.vy"
     },
-    "358": {
+    "359": {
       "offset": [
         0,
         24
@@ -1898,7 +1927,7 @@
       "op": "STOP",
       "path": "contracts/CanalLock.vy"
     },
-    "359": {
+    "360": {
       "offset": [
         0,
         24
@@ -1906,7 +1935,7 @@
       "op": "JUMPDEST",
       "path": "contracts/CanalLock.vy"
     },
-    "360": {
+    "361": {
       "offset": [
         92,
         116
@@ -1915,7 +1944,7 @@
       "path": "contracts/CanalLock.vy",
       "value": "0x55FF1842"
     },
-    "365": {
+    "366": {
       "offset": [
         92,
         116
@@ -1924,7 +1953,7 @@
       "path": "contracts/CanalLock.vy",
       "value": "0x00"
     },
-    "367": {
+    "368": {
       "offset": [
         92,
         116
@@ -1932,7 +1961,7 @@
       "op": "MLOAD",
       "path": "contracts/CanalLock.vy"
     },
-    "368": {
+    "369": {
       "offset": [
         92,
         116
@@ -1940,7 +1969,7 @@
       "op": "EQ",
       "path": "contracts/CanalLock.vy"
     },
-    "369": {
+    "370": {
       "offset": [
         92,
         116
@@ -1948,29 +1977,21 @@
       "op": "ISZERO",
       "path": "contracts/CanalLock.vy"
     },
-    "370": {
+    "371": {
       "offset": [
         92,
         116
       ],
       "op": "PUSH2",
       "path": "contracts/CanalLock.vy",
-      "value": "0x018E"
-    },
-    "373": {
-      "offset": [
-        92,
-        116
-      ],
-      "op": "JUMPI",
-      "path": "contracts/CanalLock.vy"
+      "value": "0x018F"
     },
     "374": {
       "offset": [
         92,
         116
       ],
-      "op": "CALLVALUE",
+      "op": "JUMPI",
       "path": "contracts/CanalLock.vy"
     },
     "375": {
@@ -1978,7 +1999,7 @@
         92,
         116
       ],
-      "op": "ISZERO",
+      "op": "CALLVALUE",
       "path": "contracts/CanalLock.vy"
     },
     "376": {
@@ -1986,11 +2007,19 @@
         92,
         116
       ],
+      "op": "ISZERO",
+      "path": "contracts/CanalLock.vy"
+    },
+    "377": {
+      "offset": [
+        92,
+        116
+      ],
       "op": "PUSH2",
       "path": "contracts/CanalLock.vy",
-      "value": "0x0180"
+      "value": "0x0181"
     },
-    "379": {
+    "380": {
       "offset": [
         92,
         116
@@ -1998,7 +2027,7 @@
       "op": "JUMPI",
       "path": "contracts/CanalLock.vy"
     },
-    "380": {
+    "381": {
       "offset": [
         92,
         116
@@ -2007,7 +2036,7 @@
       "path": "contracts/CanalLock.vy",
       "value": "0x00"
     },
-    "382": {
+    "383": {
       "offset": [
         92,
         116
@@ -2015,7 +2044,7 @@
       "op": "DUP1",
       "path": "contracts/CanalLock.vy"
     },
-    "383": {
+    "384": {
       "offset": [
         92,
         116
@@ -2023,7 +2052,7 @@
       "op": "REVERT",
       "path": "contracts/CanalLock.vy"
     },
-    "384": {
+    "385": {
       "offset": [
         92,
         116
@@ -2031,7 +2060,7 @@
       "op": "JUMPDEST",
       "path": "contracts/CanalLock.vy"
     },
-    "385": {
+    "386": {
       "offset": [
         92,
         116
@@ -2040,7 +2069,7 @@
       "path": "contracts/CanalLock.vy",
       "value": "0x01"
     },
-    "387": {
+    "388": {
       "offset": [
         92,
         116
@@ -2048,7 +2077,7 @@
       "op": "SLOAD",
       "path": "contracts/CanalLock.vy"
     },
-    "388": {
+    "389": {
       "offset": [
         92,
         116
@@ -2057,7 +2086,7 @@
       "path": "contracts/CanalLock.vy",
       "value": "0x00"
     },
-    "390": {
+    "391": {
       "offset": [
         92,
         116
@@ -2065,7 +2094,7 @@
       "op": "MSTORE",
       "path": "contracts/CanalLock.vy"
     },
-    "391": {
+    "392": {
       "offset": [
         92,
         116
@@ -2074,7 +2103,7 @@
       "path": "contracts/CanalLock.vy",
       "value": "0x20"
     },
-    "393": {
+    "394": {
       "offset": [
         92,
         116
@@ -2083,7 +2112,7 @@
       "path": "contracts/CanalLock.vy",
       "value": "0x00"
     },
-    "395": {
+    "396": {
       "offset": [
         92,
         116
@@ -2091,7 +2120,7 @@
       "op": "RETURN",
       "path": "contracts/CanalLock.vy"
     },
-    "396": {
+    "397": {
       "offset": [
         92,
         116
@@ -2099,7 +2128,7 @@
       "op": "POP",
       "path": "contracts/CanalLock.vy"
     },
-    "397": {
+    "398": {
       "offset": [
         92,
         116
@@ -2107,7 +2136,7 @@
       "op": "STOP",
       "path": "contracts/CanalLock.vy"
     },
-    "398": {
+    "399": {
       "offset": [
         92,
         116
@@ -2115,23 +2144,23 @@
       "op": "JUMPDEST",
       "path": "contracts/CanalLock.vy"
     },
-    "399": {
+    "400": {
       "op": "JUMPDEST"
     },
-    "400": {
+    "401": {
       "op": "PUSH1",
       "value": "0x00"
     },
-    "402": {
+    "403": {
       "op": "PUSH1",
       "value": "0x00"
     },
-    "404": {
+    "405": {
       "op": "REVERT"
     }
   },
-  "sha1": "254717bf7a7be00291a72c6d64d863ead6c0c2d7",
-  "source": "gate1_down: public(bool) # False = Up (stopping water), True = Down (letting water through)\ngate2_down: public(bool) # False = Up (stopping water), True = Down (letting water through)\n\n@public\ndef raise_gate(pick_gate1: bool):\n    if pick_gate1:\n        self.gate1_down = False # Raise up, stopping the flow of water\n    else:\n        self.gate2_down = False # Raise up, stopping the flow of water\n\n@public\ndef lower_gate(pick_gate1: bool):\n    if pick_gate1: # Gate 2 cannot\n        # Both gates can not be lowered at the same time\n        assert self.gate2_down  # CHANGE ME\n        self.gate1_down = True # Lower down, allowing the flow of water\n    else:\n        # Both gates can not be lowered at the same time\n        assert not self.gate1_down\n        self.gate2_down = True # Lower down, allowing the flow of water\n",
+  "sha1": "fcb5ce4cacfe19c25d55911859b28ec6ade67337",
+  "source": "gate1_down: public(bool) # False = Up (stopping water), True = Down (letting water through)\ngate2_down: public(bool) # False = Up (stopping water), True = Down (letting water through)\n\n@public\ndef raise_gate(pick_gate1: bool):\n    if pick_gate1:\n        self.gate1_down = False # Raise up, stopping the flow of water\n    else:\n        self.gate2_down = False # Raise up, stopping the flow of water\n\n@public\ndef lower_gate(pick_gate1: bool):\n    if pick_gate1: # Gate 2 cannot\n        # Both gates can not be lowered at the same time\n        assert not self.gate2_down  # CHANGE ME\n        self.gate1_down = True # Lower down, allowing the flow of water\n    else:\n        # Both gates can not be lowered at the same time\n        assert not self.gate1_down\n        self.gate2_down = True # Lower down, allowing the flow of water\n",
   "sourceMap": "",
   "sourcePath": "contracts/CanalLock.vy",
   "type": "contract"

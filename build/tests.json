@@ -2,6 +2,14 @@
   "contracts": {
     "CanalLock": "a2aa0e388fca74cb7e0db6e919df426237e97998"
   },
-  "tests": {},
+  "tests": {
+    "tests/test_canal_lock.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": ".",
+      "sha1": "f9b551b6457b70d7b3847c02040b84c56218bfde",
+      "txhash": []
+    }
+  },
   "tx": {}
 }
