@@ -7,13 +7,13 @@ def create_test(accounts, rpc, contract_type):
     class ContractTest(sf.RuleBasedStateMachine):
         def __init__(self):
             super(ContractTest, self).__init__()
+            # NOTE has to be deployed first?
             self._contract = contract_type.deploy({'from': accounts[0]})
-            self._rpc = rpc
-            self._rpc.snapshot()
 
         @sf.initialize()
         def reset_to_deployment(self):
-            self._rpc.revert()
+            rpc.reset()
+            self._contract = contract_type.deploy({'from': accounts[0]})
 
         @sf.rule(pick_gate1=st.booleans())
         def raise_gate(self, pick_gate1):
@@ -60,5 +60,9 @@ if __name__ == '__main__':
     HypothesisBrownieProject = project.load()
 
     hack = create_test(accounts, rpc, HypothesisBrownieProject.CanalLock)
+    from hypothesis import settings
+    hack.settings = settings(
+            max_examples=500, stateful_step_count=10, deadline=None,
+        )
     import unittest
     unittest.main()
