@@ -1,3 +1,12 @@
+****** **NOTE** ******
+
+This project was used to implement stateful testing into Brownie:
+https://eth-brownie.readthedocs.io/en/stable/tests-hypothesis-stateful.html
+
+Plus use brownie for this functionality!
+
+---
+
 # Hypothesis Integration for Ethereum Smart Conctracts
 Tests are executed using pytest
 
